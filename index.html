@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Student Food Stall</title>
+
+<style>
+* { box-sizing: border-box; transition: all 0.25s ease; }
+
+body {
+  margin:0;
+  font-family:"Poppins",Arial,sans-serif;
+  color:#333;
+  background: radial-gradient(circle at top, #fff3dc,#ffd59a);
+  overflow-x:hidden;
+  min-height:100vh;
+  padding-bottom:120px;
+}
+
+/* FLOATING EMOJIS */
+.emoji-float {
+  position: absolute;
+  font-size: 24px;
+  animation: floatAnim 6s linear infinite;
+  pointer-events:none;
+}
+@keyframes floatAnim {
+  0% {transform: translateY(0) rotate(0deg);}
+  100% {transform: translateY(-800px) rotate(360deg);}
+}
+
+/* HEADER */
+header {
+  background: linear-gradient(120deg,#ff9800,#ff5722);
+  color:white;
+  text-align:center;
+  padding:36px 20px;
+  border-radius:0 0 38px 38px;
+  box-shadow:0 12px 30px rgba(0,0,0,0.18);
+}
+header h1 {margin:0;font-size:34px;}
+header p {margin-top:10px;font-size:15px;opacity:0.95;}
+
+/* SECTIONS */
+section {
+  background:white;
+  margin:28px auto;
+  padding:26px;
+  max-width:900px;
+  border-radius:24px;
+  box-shadow:0 14px 35px rgba(0,0,0,0.12);
+}
+h2 {color:#ff6f00;}
+
+/* MENU */
+.menu-cards {
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+  gap:20px;
+}
+.menu-card {
+  background:linear-gradient(135deg,#fff7e6,#ffe2bf);
+  padding:22px;
+  border-radius:22px;
+  text-align:center;
+  box-shadow:0 10px 25px rgba(0,0,0,0.12);
+  position:relative;
+}
+.menu-card:hover {
+  transform:translateY(-6px) rotate(-1deg);
+}
+.badge {
+  position:absolute;
+  top:-10px;
+  right:-10px;
+  background:crimson;
+  color:white;
+  padding:6px 14px;
+  border-radius:20px;
+  font-size:12px;
+}
+.badge.orange {background:#ff9800;}
+.menu-card h3 {margin:0;font-size:20px;}
+
+/* FEEDBACK BUTTON */
+.feedback-btn {
+  display:inline-block;
+  margin-top:20px;
+  background:linear-gradient(120deg,#ff9800,#ff5722);
+  color:white;
+  padding:16px 34px;
+  border-radius:40px;
+  text-decoration:none;
+  font-size:18px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.18);
+}
+.feedback-btn:hover {
+  transform:translateY(-4px) scale(1.05);
+}
+
+/* FOOTER */
+footer {
+  background:linear-gradient(120deg,#ff9800,#ff5722);
+  color:white;
+  text-align:center;
+  padding:20px;
+  border-radius:38px 38px 0 0;
+  margin-top:40px;
+}
+
+@media (max-width:600px){
+  header h1{font-size:26px;}
+  section{margin:16px;padding:20px;}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>🌟 The Maharashtra Tadka 🌟</h1>
+  <p>
+    by Humeesha S., Swara K., Prayasi M., Diksha G.,  
+    Prishi B., Shreya P., Vrinda M.
+  </p>
+</header>
+
+<div id="emojiContainer"></div>
+
+<section>
+  <h2>🍽️ Today’s Menu</h2>
+  <div class="menu-cards">
+
+  <div class="menu-card">
+    <div class="badge orange">Popular</div>
+    <h3>Masala Pav</h3>
+  </div>
+
+  <div class="menu-card">
+    <div class="badge">Special</div>
+    <h3>Masala Papad</h3>
+  </div>
+
+  <div class="menu-card">
+    <div class="badge orange">Sweet</div>
+    <h3>Motichur Ladoo 🍬</h3>
+  </div>
+
+  <div class="menu-card">
+    <div class="badge">Drink</div>
+    <h3>Aam Panna 🥭</h3>
+  </div>
+
+</div>
+
+</section>
+
+<section style="text-align:center;">
+  <h2>📝 Give Us Your Feedback</h2>
+  <p>Your opinion helps us improve 💛</p>
+
+  <a class="feedback-btn"
+     href="https://forms.cloud.microsoft/r/W37yf93Kpy?origin=lprLink"
+     target="_blank">
+     ⭐ Rate & Review Our Stall ⭐
+  </a>
+</section>
+
+<footer>
+  <p>© 2025 Student Food Stall</p>
+  <p style="opacity:.85;">Made by The Maharashtra Tadka ✨</p>
+</footer>
+
+<script>
+const emojiContainer = document.getElementById("emojiContainer");
+
+setInterval(()=>{
+  const e=document.createElement("div");
+  e.className="emoji-float";
+  e.textContent=Math.random()>0.5?"🍟":"🍔";
+  e.style.left=Math.random()*window.innerWidth+"px";
+  e.style.fontSize=(14+Math.random()*20)+"px";
+  emojiContainer.appendChild(e);
+  setTimeout(()=>e.remove(),5000);
+},900);
+</script>
+
+</body>
+</html>
